@@ -40,23 +40,24 @@ def create_word_dict(filename):
                     wordCount[word.lower()] += 1
                 else:
                     wordCount[word.lower()] = 1
-    wordCountItems = wordCount.items()
-    wordCountSorted = sorted(wordCountItems)
-    return print(wordCountSorted)
+    return wordCount
 
 
 def print_words(filename):
     """Prints one per line '<word> : <count>', sorted
     by word for the given file.
     """
-    # Your code here
-    return
+    wordCount = create_word_dict(filename)
+    wordOutput = str(wordCount)
+    return wordOutput
 
 
 def print_top(filename):
     """Prints the top count listing for the given file."""
-    # Your code here
-    return
+    wordCount = create_word_dict(filename)
+    sortedWordCount = sorted(
+        wordCount.items(), key=lambda x: x[1], reverse=True)
+    return print(sortedWordCount[:19])
 
 
 # This basic command line argument parsing code is provided and calls
